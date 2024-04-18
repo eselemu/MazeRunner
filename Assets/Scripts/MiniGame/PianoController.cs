@@ -63,20 +63,29 @@ public class PianoController : MonoBehaviour
     }
     IEnumerator coroutinePaintKey(GameObject key)
     {
+        Material prevMaterial = key.GetComponent<MeshRenderer>().material;
+        Color prevColor = key.GetComponent<MeshRenderer>().material.color;
         key.GetComponent<MeshRenderer>().material.color = Color.blue;
         yield return new WaitForSeconds(pauseClick);
-        key.GetComponent<MeshRenderer>().material.color = Color.white;
+        key.GetComponent<MeshRenderer>().material = prevMaterial;
+        key.GetComponent<MeshRenderer>().material.color = prevColor;
+
     }
     IEnumerator coroutineLightRandonKey()
     {
         for (int t = 0; t < 5; t++)
         {
-            int randIndex = Random.Range(0, 7);
+            int randIndex = Random.Range(0, 6);
             indexKeys.Add(randIndex);
+            Material prevMaterial = keys[randIndex].GetComponent<MeshRenderer>().material;
+            Color prevColor = keys[randIndex].GetComponent<MeshRenderer>().material.color;
             keys[randIndex].GetComponent<MeshRenderer>().material.color = Color.green;
             yield return new WaitForSeconds(pauseDisplay);
-            keys[randIndex].GetComponent<MeshRenderer>().material.color = Color.white;
+            keys[randIndex].GetComponent<MeshRenderer>().material = prevMaterial;
+            keys[randIndex].GetComponent<MeshRenderer>().material.color = prevColor;
+
         }
+    
         timeToPlayMessage.text = "Your turn!";
         yield return new WaitForSeconds(1f);
         timeToPlayMessage.text = "";
