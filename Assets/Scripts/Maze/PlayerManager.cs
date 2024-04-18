@@ -7,7 +7,7 @@ using UnityEditor;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject controller;
+    //private GameObject controller;
     public static PlayerManager PM;
     public float moveSpeed;//Velocidad bajo la que se mueve el personaje
     public bool move, breakWalls;//Booleano que determina si pude moverse o romper paredes
@@ -94,13 +94,5 @@ public class PlayerManager : MonoBehaviour
             move = false;
             transform.position -= (nextPos * 0.2f);
         }
-    }
-
-    void StopRayo() {
-        moveSpeed -= 2f;
-    }
-
-    void StopBorrador(){
-        breakWalls = false;
     }
 }

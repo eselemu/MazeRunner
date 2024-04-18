@@ -13,33 +13,11 @@ public class MazeManager : MonoBehaviour
 
     //Prefabs para instanciar durante la ejecuci�n del Juego
     public GameObject wallPrefab;
-    /*public GameObject rayoPrefab;
-    public GameObject relojPrefab;
-    public GameObject xPrefab;
-    public GameObject borradorPrefab;
-    public GameObject estrellaPrefab;
-    public GameObject ingredientPrefab;
-    public GameObject panelPrefab;*/
     public GameObject floorPrefab;
 
     MazeGenerator maze;//Objeto Maze, con el Laberinto ya generado
 
-
-    int quantityPowers;//Cantidad de SuperPoderes
-
-    int quantityIngredients;//Cantidad de Ingredientes
-
-
     public bool[,] freeCells;//Celdas Libres
-
-    //Enumeracion de posibles SuperPoderes
-    public enum TypePower {
-        Rayo,
-        Reloj,
-        X,
-        Borrador,
-        EstrellaDorada
-    }
 
     void Awake()
     {
@@ -55,7 +33,6 @@ public class MazeManager : MonoBehaviour
     {
 
         //Inicializaci�n de arreglos y variables
-        //quantityPowers = 2;
         freeCells = new bool[mazeRows, mazeColumns];
 
         //Se instancia el objeto maze, generando el Laberinto
@@ -64,7 +41,7 @@ public class MazeManager : MonoBehaviour
         InitializeFreeCells();
 
         //Renderizaci�n de la escena
-        //PlayerManager.PM.SetRandomPosition();
+        PlayerManager.PM.SetRandomPosition();
         RenderMaze();
     }
 
