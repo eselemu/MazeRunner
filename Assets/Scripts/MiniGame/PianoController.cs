@@ -17,6 +17,7 @@ public class PianoController : MonoBehaviour
     int indexCounter;
     float pauseClick;
     bool playing;
+    int cont;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class PianoController : MonoBehaviour
         indexKeys = new List<int>();
         audioSources = new List<AudioSource>();
         StartCoroutine(coroutineLightRandonKey());
+        cont =0;
     }
     void Update()
     {
@@ -48,6 +50,14 @@ public class PianoController : MonoBehaviour
                 {
                     StartCoroutine(coroutinePaintKey(selectedKey));
                     selectedKey.GetComponent<AudioSource>().Play();
+
+                    if(cont==4){
+                        foreach(GameObject key in keys){
+                            key.GetComponent<MeshRenderer>().material.color = Color.green;
+                        }
+                    }
+
+                    cont++;
                 }
                 else
                     EndGame();
