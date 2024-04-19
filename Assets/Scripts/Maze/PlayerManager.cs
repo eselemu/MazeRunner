@@ -56,6 +56,14 @@ public class PlayerManager : MonoBehaviour
                 ((MazeManager.MZ.mazeColumns / 2) - coordinateX) * MazeManager.MZ.wallSize);
     }
 
+    public void OnTriggerEnter(Collider collision)
+    {
+        if (collision.CompareTag("Wall")) {
+            move = false;
+            transform.position -= (nextPos * 0.2f);
+        }
+    }
+
     void WallCollision(Collider collision) {
         if (breakWalls)
         {
