@@ -10,6 +10,7 @@ public class PianoController : MonoBehaviour
     public List<GameObject> keys;
     public TextMeshProUGUI timeToPlayMessage;
     List<int> indexKeys;
+    List<AudioSource> audioSources;
     //List<int> selectedIndexKeys;
     GameObject selectedKey;
     int pauseDisplay;
@@ -24,6 +25,7 @@ public class PianoController : MonoBehaviour
         pauseClick = 0.5f;
         playing = false;
         indexKeys = new List<int>();
+        audioSources = new List<AudioSource>();
         StartCoroutine(coroutineLightRandonKey());
     }
     void Update()
@@ -43,7 +45,10 @@ public class PianoController : MonoBehaviour
                 selectedKey = hit.transform.gameObject;
                 int selectedIndex = int.Parse(hit.transform.name);
                 if (selectedIndex == indexKeys[indexCounter])
+                {
                     StartCoroutine(coroutinePaintKey(selectedKey));
+                    selectedKey.GetComponent<AudioSource>().Play();
+                }
                 else
                     EndGame();
                 indexCounter++;
@@ -65,6 +70,7 @@ public class PianoController : MonoBehaviour
     {
         Material prevMaterial = key.GetComponent<MeshRenderer>().material;
         Color prevColor = key.GetComponent<MeshRenderer>().material.color;
+        key.GetComponent<AudioSource>().Play();
         key.GetComponent<MeshRenderer>().material.color = Color.blue;
         yield return new WaitForSeconds(pauseClick);
         key.GetComponent<MeshRenderer>().material = prevMaterial;
@@ -75,8 +81,9 @@ public class PianoController : MonoBehaviour
     {
         for (int t = 0; t < 5; t++)
         {
-            int randIndex = Random.Range(0, 6);
+            int randIndex = Random.Range(0, 7);
             indexKeys.Add(randIndex);
+            keys[randIndex].GetComponent<AudioSource>().Play();
             Material prevMaterial = keys[randIndex].GetComponent<MeshRenderer>().material;
             Color prevColor = keys[randIndex].GetComponent<MeshRenderer>().material.color;
             keys[randIndex].GetComponent<MeshRenderer>().material.color = Color.green;
@@ -85,7 +92,7 @@ public class PianoController : MonoBehaviour
             keys[randIndex].GetComponent<MeshRenderer>().material.color = prevColor;
 
         }
-    
+
         timeToPlayMessage.text = "Your turn!";
         yield return new WaitForSeconds(1f);
         timeToPlayMessage.text = "";
