@@ -3,6 +3,8 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
 using UnityEditor;
+using UnityEngine.AI;
+using Unity.AI.Navigation;
 
 public class MazeManager : MonoBehaviour
 {
@@ -13,11 +15,13 @@ public class MazeManager : MonoBehaviour
 
     //Prefabs para instanciar durante la ejecuci�n del Juego
     public GameObject wallPrefab;
-    public GameObject floorPrefab;
+    public GameObject floor;
 
     MazeGenerator maze;//Objeto Maze, con el Laberinto ya generado
 
     public bool[,] freeCells;//Celdas Libres
+
+    public NavMeshSurface surface;
 
     void Awake()
     {
@@ -40,9 +44,10 @@ public class MazeManager : MonoBehaviour
 
         InitializeFreeCells();
 
-        //Renderizaci�n de la escena
-        PlayerManager.PM.SetRandomPosition();
+        //Renderizaci�n de la escena;
         RenderMaze();
+
+        PlayerManager.PM.SetRandomPosition();
     }
 
     // Update is called once per frame
@@ -53,8 +58,9 @@ public class MazeManager : MonoBehaviour
 
     void RenderMaze() {
         //Renderizaci�n del suelo del Laberinto
-        GameObject floor = Instantiate(floorPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        //GameObject floor = Instantiate(floorPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         floor.transform.localScale = new Vector3(mazeRows, 1, mazeColumns);
+        //surface.BuildNavMesh();
 
         for (int r = 0; r < mazeRows; r++)
         {
@@ -111,6 +117,8 @@ public class MazeManager : MonoBehaviour
                 }
             }
         }
+
+        AINavigator.AINav.BakeNavMesh();
     }
 
     void InitializeFreeCells() {
