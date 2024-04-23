@@ -26,7 +26,7 @@ public class DetectPlayer : MonoBehaviour
         // Si la distancia es menor que el umbral de detección, cambia el color de la cámara a rojo
         if (distanceToGuard < detectionDistance){
             mainCamera.backgroundColor = redColor;
-            print("fjshkjsagrhkjds");
+            print("OJOJOJOJO");
         }
         else{
             // Restaura el color original de la cámara
