@@ -6,7 +6,6 @@ using UnityEditor;
 //Clase jugador
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField]
     //private GameObject controller;
     public static PlayerManager PM;
     public float moveSpeed;//Velocidad bajo la que se mueve el personaje
@@ -59,46 +58,6 @@ public class PlayerManager : MonoBehaviour
     public void OnTriggerEnter(Collider collision)
     {
         if (collision.CompareTag("Wall")) {
-            move = false;
-            transform.position -= (nextPos * 0.2f);
-        }
-    }
-
-    void WallCollision(Collider collision) {
-        if (breakWalls)
-        {
-            bool destroy = true;
-            float stopCoordinate = (MazeManager.MZ.mazeRows / 2) * MazeManager.MZ.wallSize, offset = (MazeManager.MZ.wallSize / 2);
-            if (transform.position.z >= stopCoordinate + offset - 1)
-            {
-                if (collision.name.Contains("NWall"))
-                    destroy = false;
-            }
-            else if (transform.position.z <= (-stopCoordinate) + offset + 1)
-            {
-                if (collision.name.Contains("SWall"))
-                    destroy = false;
-            }
-
-            if (transform.position.x <= -stopCoordinate - offset + 1)
-            {
-                if (collision.name.Contains("WWall"))
-                    destroy = false;
-            }
-            else if (transform.position.x >= stopCoordinate - offset - 1)
-            {
-                if (collision.name.Contains("EWall"))
-                    destroy = false;
-            }
-
-            if (destroy)
-                collision.gameObject.SetActive(false);
-            else {
-                move = false;
-                transform.position -= (nextPos * 0.2f);
-            }
-        }
-        else {
             move = false;
             transform.position -= (nextPos * 0.2f);
         }

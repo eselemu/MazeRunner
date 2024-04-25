@@ -6,15 +6,14 @@ public class DetectPlayer : MonoBehaviour
 {
     public Camera mainCamera;
     public GameObject player;
-    public Color redColor;
-    private Color originalColor;
     public float detectionDistance = 5f;
+    bool detected;
     // Start is called before the first frame update
     void Start()
     {
         mainCamera = Camera.main;
         player = GameObject.Find("Player");
-        originalColor = mainCamera.backgroundColor;
+        detected = false;
     }
 
     // Update is called once per frame
@@ -25,12 +24,12 @@ public class DetectPlayer : MonoBehaviour
 
         // Si la distancia es menor que el umbral de detección, cambia el color de la cámara a rojo
         if (distanceToGuard < detectionDistance){
-            mainCamera.backgroundColor = redColor;
-            print("OJOJOJOJO");
+            mainCamera.GetComponent<Effects>().enabled = true;
+            detected = true;
         }
-        else{
-            // Restaura el color original de la cámara
-            mainCamera.backgroundColor = originalColor;
+        else if(detected){
+            mainCamera.GetComponent<Effects>().enabled = false;
+            detected = false;
         }
     }
 }
