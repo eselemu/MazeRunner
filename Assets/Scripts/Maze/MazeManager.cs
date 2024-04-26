@@ -24,6 +24,10 @@ public class MazeManager : MonoBehaviour
 
     public NavMeshSurface surface;
 
+    public GameObject defeatPanel;
+    public GameObject victoryPanel;
+    public GameObject player;
+
     void Awake()
     {
         if (MZ != null)
@@ -52,7 +56,10 @@ public class MazeManager : MonoBehaviour
 
         PlayerManager.PM.SetRandomPosition();
 
+        //chest.transform.position = new Vector3(0, 0, 0);
+
         //Cursor.visible = false;
+        Invoke("SetChest", 5f);
     }
 
     // Update is called once per frame
@@ -124,7 +131,6 @@ public class MazeManager : MonoBehaviour
         }
 
         AINavigator.AINav.BakeNavMesh();
-        chest.transform.position = new Vector3(0, 0, 0);
     }
 
     void InitializeFreeCells() {
@@ -133,5 +139,26 @@ public class MazeManager : MonoBehaviour
             for (int columns = 0; columns < mazeColumns; columns++)
                 freeCells[rows, columns] = true;
         }
+    }
+
+    void SetChest() {
+        chest.transform.position = new Vector3(0, 0, 0);
+    }
+
+    public void Victory() {
+        Time.timeScale = 0f;
+        victoryPanel.SetActive(true);
+        //Destroy(player);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void Defeat()
+    {
+        Time.timeScale = 0f;
+        defeatPanel.SetActive(true);
+        //Destroy(player);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }

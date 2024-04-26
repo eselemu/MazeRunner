@@ -64,8 +64,10 @@ public class PlayerManager : MonoBehaviour
     public void OnTriggerEnter(Collider collision)
     {
         if (collision.CompareTag("Guard")){
+            MazeManager.MZ.Defeat();
         }
         else if (collision.CompareTag("Chest")) {
+            MazeManager.MZ.Victory();
         }
     }
 
