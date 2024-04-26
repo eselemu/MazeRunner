@@ -3,7 +3,177 @@ guid: d5805d82bc2e41c408669d57acf11855
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BWaterJar
+    second: {fileID: 2100000, guid: 28353094f78b36849bc1d291e407aa88, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CurtainSala01
+    second: {fileID: 2100000, guid: e21c754d4e5aa194cb1c8a1d0b09dacc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CurtainTO1
+    second: {fileID: 2100000, guid: b47579ab8782a0f44a4e96ce7fe68ebb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LidL
+    second: {fileID: 2100000, guid: 358931ce0caef1649b0f8ca436b2cf36, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lotus2
+    second: {fileID: 2100000, guid: fe0c0bac37b371a48a070d7ab1c2ea33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LotusFlower
+    second: {fileID: 2100000, guid: bcd4fc9ad1c1b8e4990b67d2da4dfa88, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: banana1
+    second: {fileID: 2100000, guid: dac4a3bfaffe1bd4ca1b7ce5928d637f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: banana2
+    second: {fileID: 2100000, guid: 8bc7dcf0898bc11478a5fad1325ec1d1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: basin
+    second: {fileID: 2100000, guid: ef14451d20154ee4fb6ac4100e81b3c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: doorthai
+    second: {fileID: 2100000, guid: 10d9f3bbb4fa340408d5df4d2ed0a7c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ear plant
+    second: {fileID: 2100000, guid: 0283304d96e558f4394a6db50e0b825e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: earthenwarejar
+    second: {fileID: 2100000, guid: 75c86942bf0ec9142a211f5375571c18, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: grass01
+    second: {fileID: 2100000, guid: d6c5eb5803cb45b4abedb70d435f952b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ground1
+    second: {fileID: 2100000, guid: 5988ed59f5863454a9d3d54896b9b76e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ground2
+    second: {fileID: 2100000, guid: 78f5c17cca95329429a656ed0aa84574, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: leaft1
+    second: {fileID: 2100000, guid: ef051ac80cc8e00418d51c00c432456b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: leaft2
+    second: {fileID: 2100000, guid: 2bb7f5e1b5d27cc409d09aafe10328f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lotus basun
+    second: {fileID: 2100000, guid: 078f44949bcfbed4889fc0570f0d1130, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong4
+    second: {fileID: 2100000, guid: f98ecbc7f0939354685c0062b878881c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plam bai
+    second: {fileID: 2100000, guid: 6e89d17fd468f3f46908e5dbfab9645e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plam gan
+    second: {fileID: 2100000, guid: 750a635758989604ca34ed79cd55e687, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plant1.001
+    second: {fileID: 2100000, guid: 365a2bef69cdb6f41aefcae5502be348, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rug
+    second: {fileID: 2100000, guid: a355cbbfc98d44d40ac94e3261542314, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: thairoof
+    second: {fileID: 2100000, guid: af453e1d401c9574691c1e6aa93cd39b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: thaiwall1
+    second: {fileID: 2100000, guid: 644652b9bb5d62442b97eaa44ae19258, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: thaiwall2
+    second: {fileID: 2100000, guid: 9a2ddddc203acf242b87e7dab140bec7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: thaiwood
+    second: {fileID: 2100000, guid: 83466c10e8ba8a746bab5fe0972d52b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: thaiwood2
+    second: {fileID: 2100000, guid: 9c7956656f4c29d488662c62bec26280, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: vocanobrick
+    second: {fileID: 2100000, guid: 677f09011074dea42971958593f591d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wallout
+    second: {fileID: 2100000, guid: e67d3c339d937c84eb9bfd82b217a755, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: water
+    second: {fileID: 2100000, guid: f0e7a463f63b83c44bf8c3fa9aa567df, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: water2
+    second: {fileID: 2100000, guid: 90026f7a16ee71745b1405c19efa08cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: windowT
+    second: {fileID: 2100000, guid: db84ab484ed9ad14fa640c29ed1df83e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood
+    second: {fileID: 2100000, guid: 454eb05b84b99b94aa1867d64254d853, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
