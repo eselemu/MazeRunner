@@ -35,6 +35,7 @@ public class DetectPlayer : MonoBehaviour
 
     private void OnDestroy()
     {
-        mainCamera.GetComponent<Effects>().enabled = false;
+        if(mainCamera != null)
+            mainCamera.GetComponent<Effects>().enabled = false;
     }
 }

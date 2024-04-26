@@ -57,9 +57,13 @@ public class PlayerManager : MonoBehaviour
 
     public void OnTriggerEnter(Collider collision)
     {
-        if (collision.CompareTag("Wall")) {
-            move = false;
-            transform.position -= (nextPos * 0.2f);
+        print("siuuu");
+        if (collision.CompareTag("Guard"))
+        {
+            print("OIOIOI");
+        }
+        else if (collision.CompareTag("Chest")) {
+            print("OUUUYEA");
         }
     }
 }
