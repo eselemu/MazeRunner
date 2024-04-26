@@ -38,7 +38,7 @@ public class AINavigator : MonoBehaviour
     {
         if (guardsMoving) {
             for (int i = 0; i < agents.Count; i++) {
-                if (agents[i] != null && agents[i].remainingDistance <= 0.001f)
+                if (agents[i] != null && agents[i].isActiveAndEnabled && agents[i].isOnNavMesh && agents[i].remainingDistance <= 0.001f)
                     setDestination(i);
             }
             DetectPlayer();
@@ -99,22 +99,10 @@ public class AINavigator : MonoBehaviour
                 new Vector3(((-MazeManager.MZ.mazeRows / 2) + agentCoordinateY) * MazeManager.MZ.wallSize, ((transform.localScale.y / 2) + 0.55f),
                 ((MazeManager.MZ.mazeColumns / 2) - agentCoordinateX) * MazeManager.MZ.wallSize);
     }
-
-    /*void OnDrawGizmos()
-    {
-        float maxDistance = 10f;
-        for (int i = 0; i < agents.Count; i++) {
-            RaycastHit hit;
-            bool isHit = Physics.BoxCast(agents[i].transform.position, agents[i].transform.lossyScale / 2, transform.forward, out hit, agents[i].transform.rotation, maxDistance);
-            if (isHit){
-                print("PENE");
-            }
-        }
-    }*/
     void DetectPlayer() {
         float maxDistance = 20f;
         for (int i = 0; i < agents.Count; i++) {
-            if (agents[i] != null) {
+            if (agents[i] != null && agents[i].isActiveAndEnabled && agents[i].isOnNavMesh) {
                 if (following[i])
                     agents[i].destination = player.transform.position;
                 else {
