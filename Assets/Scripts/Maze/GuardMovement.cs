@@ -38,6 +38,6 @@ public class GuardMovement : MonoBehaviour
         agent.destination =
                 new Vector3(((-MazeManager.MZ.mazeRows / 2) + agentCoordinateY) * MazeManager.MZ.wallSize, ((transform.localScale.y / 2) + 0.55f),
                 ((MazeManager.MZ.mazeColumns / 2) - agentCoordinateX) * MazeManager.MZ.wallSize);
-        print("Buenas");
     }
+
 }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5494291168060840141}
   m_Layer: 0
   m_Name: Guard
-  m_TagString: Untagged
+  m_TagString: Guard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,5 +145,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
   player: {fileID: 0}
-  redColor: {r: 1, g: 0, b: 0, a: 0}
   detectionDistance: 5

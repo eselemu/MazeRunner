@@ -32,4 +32,9 @@ public class DetectPlayer : MonoBehaviour
             detected = false;
         }
     }
+
+    private void OnDestroy()
+    {
+        mainCamera.GetComponent<Effects>().enabled = false;
+    }
 }
