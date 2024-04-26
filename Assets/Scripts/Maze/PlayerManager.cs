@@ -6,6 +6,10 @@ using UnityEditor;
 //Clase jugador
 public class PlayerManager : MonoBehaviour
 {
+    private AudioSource audioSource;
+    public AudioClip backgroundClip;
+    public AudioClip detectedClip;
+
     //private GameObject controller;
     public static PlayerManager PM;
     public float moveSpeed;//Velocidad bajo la que se mueve el personaje
@@ -23,8 +27,8 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        move = false;
-        breakWalls = false;
+        audioSource = GetComponent<AudioSource>();
+        playBackgroundMusic();
     }
 
     // Update is called once per frame
@@ -57,13 +61,13 @@ public class PlayerManager : MonoBehaviour
 
     public void OnTriggerEnter(Collider collision)
     {
-        print("siuuu");
-        if (collision.CompareTag("Guard"))
-        {
-            print("OIOIOI");
+        if (collision.CompareTag("Guard")){
         }
         else if (collision.CompareTag("Chest")) {
-            print("OUUUYEA");
         }
+    }
+
+    public void playBackgroundMusic() {
+        audioSource.clip = backgroundClip;
     }
 }
