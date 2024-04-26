@@ -16,6 +16,7 @@ public class MazeManager : MonoBehaviour
     //Prefabs para instanciar durante la ejecuci�n del Juego
     public GameObject wallPrefab;
     public GameObject floor;
+    public GameObject chest;
 
     MazeGenerator maze;//Objeto Maze, con el Laberinto ya generado
 
@@ -35,6 +36,8 @@ public class MazeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
         //Inicializaci�n de arreglos y variables
         freeCells = new bool[mazeRows, mazeColumns];
@@ -48,6 +51,8 @@ public class MazeManager : MonoBehaviour
         RenderMaze();
 
         PlayerManager.PM.SetRandomPosition();
+
+        //Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -119,6 +124,7 @@ public class MazeManager : MonoBehaviour
         }
 
         AINavigator.AINav.BakeNavMesh();
+        chest.transform.position = new Vector3(0, 0, 0);
     }
 
     void InitializeFreeCells() {
