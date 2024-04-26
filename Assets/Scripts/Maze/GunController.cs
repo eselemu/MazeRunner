@@ -6,6 +6,7 @@ public class GunController : MonoBehaviour
 {
     public GameObject player;
     private float shootingRange;
+    public AudioSource audioSource;
     // Start is called before the first frame update
     void Start(){
         transform.position = player.transform.position;
@@ -20,6 +21,7 @@ public class GunController : MonoBehaviour
 
     void HandleShot() {
         if (Input.GetMouseButtonDown(0)) {
+            audioSource.Play();
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit, shootingRange)) {
                 //print(hit.transform.gameObject);

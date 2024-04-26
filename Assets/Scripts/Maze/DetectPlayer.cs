@@ -6,7 +6,7 @@ public class DetectPlayer : MonoBehaviour
 {
     public Camera mainCamera;
     public GameObject player;
-    public float detectionDistance = 5f;
+    private float detectionDistance = 20f;
     bool detected;
     // Start is called before the first frame update
     void Start()
@@ -26,16 +26,20 @@ public class DetectPlayer : MonoBehaviour
         if (distanceToGuard < detectionDistance){
             mainCamera.GetComponent<Effects>().enabled = true;
             detected = true;
+            PlayerManager.PM.playDetectedMusic();
         }
         else if(detected){
             mainCamera.GetComponent<Effects>().enabled = false;
             detected = false;
+            PlayerManager.PM.playBackgroundMusic();
         }
     }
 
     private void OnDestroy()
     {
-        if(mainCamera != null)
+        if (mainCamera != null){
             mainCamera.GetComponent<Effects>().enabled = false;
+            PlayerManager.PM.playBackgroundMusic();
+        }
     }
 }

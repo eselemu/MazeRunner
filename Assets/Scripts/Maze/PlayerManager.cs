@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip backgroundClip;
     public AudioClip detectedClip;
+    private bool playingDetected;
 
     //private GameObject controller;
     public static PlayerManager PM;
@@ -28,6 +29,7 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        playingDetected = true;
         playBackgroundMusic();
     }
 
@@ -68,6 +70,19 @@ public class PlayerManager : MonoBehaviour
     }
 
     public void playBackgroundMusic() {
-        audioSource.clip = backgroundClip;
+        if (playingDetected) {
+            audioSource.clip = backgroundClip;
+            audioSource.Play();
+            playingDetected = false;
+        }
+    }
+
+    public void playDetectedMusic()
+    {
+        if (!playingDetected) {
+            audioSource.clip = detectedClip;
+            audioSource.Play();
+            playingDetected = true;
+        }
     }
 }
