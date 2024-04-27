@@ -5,9 +5,11 @@ using UnityEngine.UI;
 using UnityEditor;
 using UnityEngine.AI;
 using Unity.AI.Navigation;
+using TMPro;
 
 public class MazeManager : MonoBehaviour
 {
+    public int lives;
     public static MazeManager MZ;
     public int mazeRows;//Cantidad de Filas en el Laberinto
     public int mazeColumns;//Cantidad de Columnas en el Laberinto
@@ -27,9 +29,11 @@ public class MazeManager : MonoBehaviour
     public GameObject defeatPanel;
     public GameObject victoryPanel;
     public GameObject player;
+    public TextMeshProUGUI livesText;
 
     void Awake()
     {
+        Time.timeScale = 1f;
         if (MZ != null)
             GameObject.Destroy(MZ);
         else
@@ -40,6 +44,7 @@ public class MazeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        lives = 3;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -156,9 +161,30 @@ public class MazeManager : MonoBehaviour
     public void Defeat()
     {
         Time.timeScale = 0f;
+        //GameControl.GM.GoToMainMenu();
+        GameControl.GM.lives--;
+        livesText.text = GameControl.GM.lives + " lives left";
         defeatPanel.SetActive(true);
         //Destroy(player);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
+
+    public void ClickDefeat() {
+        Time.timeScale = 1f;
+        if (GameControl.GM.lives <= 0)
+        {
+            GameControl.GM.lives = GameControl.GM.maxLives;
+            GameControl.GoToMainMenu();
+        }
+        else {
+            GameControl.GoToMaze();
+        }
+    }
+
+    public void ClickVictory() {
+        Time.timeScale = 1f;
+        GameControl.GoToMiniGame();
+    }
+
 }

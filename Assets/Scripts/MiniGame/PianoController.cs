@@ -58,6 +58,7 @@ public class PianoController : MonoBehaviour
                             key.GetComponent<MeshRenderer>().material.color = Color.green;
                         }
                         StartCoroutine(PrintOnDisplay("YOU WIN!"));
+                        GameControl.GoToMaze();
                     }
 
                     cont++;
@@ -79,7 +80,8 @@ public class PianoController : MonoBehaviour
             keys[i].GetComponent<MeshRenderer>().material.color = Color.red;
         }
          StartCoroutine(PrintOnDisplay("You lose"));
-
+        GameControl.GM.lives = GameControl.GM.maxLives;
+        GameControl.GoToMainMenu();
     }
     IEnumerator coroutinePaintKey(GameObject key)
     {
@@ -119,7 +121,7 @@ public class PianoController : MonoBehaviour
     IEnumerator PrintOnDisplay(string message)
     {
         timeToPlayMessage.text = message;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         timeToPlayMessage.text = "";
     }
 
