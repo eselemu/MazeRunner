@@ -9,14 +9,23 @@ public class MovimientoPersonaje : MonoBehaviour
     [SerializeField] private CharacterController characterController;
     [SerializeField] private Transform transformPersonaje;
     [SerializeField] private Camera camaraPersonaje;
+    [SerializeField] private GameObject gun;
+    [SerializeField] private GameObject thirdPerson;
+    [SerializeField] private GameObject firstPerson;
 
     private Vector3 movimiento;
     private float rotacionX;
+    private bool isFirstPerson;
+    private void Start()
+    {
+        isFirstPerson = true;
+    }
 
     private void Update()
     {
         MovimientoDelPersonaje();
         MovimientoDeCamara();
+        ChangeCamera();
     }
 
     void MovimientoDelPersonaje()
@@ -37,7 +46,19 @@ public class MovimientoPersonaje : MonoBehaviour
         rotacionX = Mathf.Clamp(rotacionX, -90f, 90f);
 
         camaraPersonaje.transform.localRotation = Quaternion.Euler(rotacionX, 0, 0);
+        gun.transform.localRotation = Quaternion.Euler(rotacionX, 0, 0);
         transformPersonaje.Rotate(Vector3.up * ratonX);
+    }
+    void ChangeCamera() {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            isFirstPerson = !isFirstPerson;
+            if (isFirstPerson){
+                camaraPersonaje.transform.position = firstPerson.transform.position;
+            }
+            else {
+                camaraPersonaje.transform.position = thirdPerson.transform.position;
+            }
+        }
     }
 
 }

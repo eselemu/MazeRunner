@@ -5,6 +5,7 @@ using UnityEngine;
 public class GunController : MonoBehaviour
 {
     public GameObject player;
+    public GameObject gunOut;
     private float shootingRange;
     public AudioSource audioSource;
     // Start is called before the first frame update
@@ -23,7 +24,7 @@ public class GunController : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) {
             audioSource.Play();
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit, shootingRange)) {
+            if (Physics.Raycast(gunOut.transform.position, transform.forward, out hit, shootingRange)) {
                 //print(hit.transform.gameObject);
                 if (hit.transform.gameObject.CompareTag("Guard"))
                     Destroy(hit.transform.gameObject);

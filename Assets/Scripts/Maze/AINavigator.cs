@@ -109,13 +109,13 @@ public class AINavigator : MonoBehaviour
                     RaycastHit hit;
                     if (Physics.Raycast(agents[i].transform.position, agents[i].transform.forward, out hit, maxDistance))
                     {
-                        if (hit.transform.gameObject.CompareTag("Player"))
-                        {
+                        if (hit.transform.gameObject.CompareTag("Player")){
                             agents[i].destination = player.transform.position;
                             following[i] = true;
                         }
                     }
-                }            }
+                }            
+            }
         }
     }
 }

@@ -23,7 +23,7 @@ public class GameControl : MonoBehaviour
     }
     void Start()
     {
-        maxLives = 3;
+        maxLives = 2;
         lives = maxLives;
     }
 
